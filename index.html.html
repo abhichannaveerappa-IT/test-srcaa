@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>SRCAA - Shakti Research Centre & Academia</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Logo Icon.png">
+    <link rel="shortcut icon" type="image/png" href="Logo Icon.png">
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            background-color: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            z-index: 10000;
+            border: 1px solid rgba(153, 0, 0, 0.2);
+            transform: translateY(200%);
+            transition: transform 0.5s ease;
+        }
+
+        .cookie-consent.show {
+            transform: translateY(0);
+        }
+
+        .cookie-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .cookie-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #990000, #7a0000);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .cookie-text {
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        .cookie-text a {
+            color: #990000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cookie-btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .cookie-btn-accept {
+            background: linear-gradient(135deg, #990000, #7a0000);
+            color: white;
+        }
+
+        .cookie-btn-accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(153, 0, 0, 0.3);
+        }
+
+        .cookie-btn-decline {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .cookie-btn-decline:hover {
+            background: #e0e0e0;
+        }
+
+        /* Modern Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #990000, #7a0000);
+            border-radius: 5px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(153, 0, 0, 0.1);
+            padding: 0.8rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #990000, #7a0000);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(153, 0, 0, 0.3);
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #990000;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: #990000;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .nav-links a i {
+            color: #990000;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #990000;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section - FIXED */
+        .hero {
+            min-height: 100vh;
+            padding: 120px 2rem 80px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 60px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(153, 0, 0, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(153, 0, 0, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 900px;
+            width: 100%;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #ffd7d7 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #990000, #7a0000);
+            color: white;
+            box-shadow: 0 10px 30px rgba(153, 0, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(153, 0, 0, 0.6);
+        }
+
+        .btn-outline {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #1a1a1a;
+            transform: translateY(-5px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 6rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-subtitle {
+            color: #990000;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            background: rgba(153, 0, 0, 0.1);
+            border-radius: 50px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: #1a1a1a;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #990000, #ff4d4d);
+            border-radius: 3px;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.4s;
+            border: 1px solid rgba(153, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(153, 0, 0, 0.15);
+            border-color: #990000;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-title i {
+            color: #990000;
+            font-size: 1.5rem;
+        }
+
+        .card-subtitle {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-text {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #990000, #7a0000);
+            padding: 4rem 2rem;
+            color: white;
+            margin: 4rem -2rem;
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 3rem;
+            }
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .stat-number i {
+            font-size: 2rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            background: linear-gradient(135deg, #ffffff, #f8f8f8);
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 0;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            border: 1px solid rgba(153, 0, 0, 0.1);
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .founder-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .founder-image-container {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(153, 0, 0, 0.2);
+            max-width: 450px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .founder-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .founder-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #666;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(153, 0, 0, 0.05);
+            border-left: 4px solid #990000;
+            border-radius: 0 20px 20px 0;
+        }
+
+        /* Press Release Section - FIXED */
+        .press-section {
+            background: white;
+            border-radius: 30px;
+            padding: 2.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            border: 1px solid rgba(153, 0, 0, 0.1);
+        }
+
+        .press-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .press-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+        }
+
+        .press-category h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            color: #990000;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid rgba(153, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .press-list {
+            list-style: none;
+        }
+
+        .press-list li {
+            margin-bottom: 0.8rem;
+            padding: 0.8rem 1rem;
+            background: #f8f8f8;
+            border-radius: 10px;
+            transition: all 0.3s;
+            border-left: 3px solid #990000;
+        }
+
+        .press-list li:hover {
+            transform: translateX(5px);
+            background: #f0f0f0;
+        }
+
+        .press-list a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .press-list i {
+            color: #990000;
+            font-size: 1.2rem;
+        }
+
+        /* Research Announcement */
+        .research-announcement {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 30px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .research-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-topic {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 700;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .survey-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: #667eea;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .survey-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border: 1px solid rgba(153, 0, 0, 0.1);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(153, 0, 0, 0.15);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: #990000;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        .contact-card a {
+            color: #666;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .contact-card a:hover {
+            color: #990000;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #990000;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: #990000;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a0a0a;
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 4rem;
+            }
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-img {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #990000, #7a0000);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .footer-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: #990000;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: #990000;
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            color: #999;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .footer-contact i {
+            color: #990000;
+            width: 20px;
+        }
+
+        .footer-contact a {
+            color: #999;
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            color: #990000;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                border-top: 1px solid rgba(153, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 100px 1rem 60px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .press-section {
+                padding: 1.5rem;
+            }
+
+            .cookie-consent {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .cookie-content {
+                flex-direction: column;
+            }
+
+            .cookie-buttons {
+                width: 100%;
+            }
+
+            .cookie-btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-content">
+            <div class="cookie-icon">
+                <i class="fas fa-cookie-bite"></i>
+            </div>
+            <div class="cookie-text">
+                We use cookies to enhance your experience on our website. By continuing to browse, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>.
+            </div>
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button>
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="Logo Icon.png" alt="SRCAA Logo" style="height: 45px; width: auto; border-radius: 12px; box-shadow: 0 5px 15px rgba(153,0,0,0.3);"> 
+                <span class="logo-text">SRCAA</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#team"><i class="fas fa-users"></i> Team</a>
+                <a href="#press"><i class="fas fa-newspaper"></i> Press</a>
+                <a href="#publications"><i class="fas fa-book"></i> Publications</a>
+                <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - FIXED -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Shakti Research<br>Centre & Academia</h1>
+            <p class="hero-subtitle">Empowering educators, researchers, and students through academic excellence, innovation, and global collaboration since 2024.</p>
+            <div class="hero-buttons">
+                <a href="#press" class="btn btn-primary"><i class="fas fa-file-alt"></i> Our Publications</a>
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-handshake"></i> Join Us</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-file-alt"></i> 100+</div>
+                    <div class="stat-label">Research Papers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-university"></i> 45+</div>
+                    <div class="stat-label">Partner Institutions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-chalkboard-teacher"></i> 20+</div>
+                    <div class="stat-label">Expert Faculty</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-graduation-cap"></i> 16K+</div>
+                    <div class="stat-label">Students Impacted</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <div class="section-subtitle">About Us</div>
+                <h2 class="section-title">Shakti Research Centre and Academia</h2>
+            </div>
+            <div class="founder-section">
+                <p style="font-size: 1rem; line-height: 1.8; margin-bottom: 2rem;">Established in 2024 under the Shakti Groups of Education, SRCAA is a digital academic and research institution founded by Sudhakaran T., a respected lecturer, award-winning researcher, and academic professional. We are accredited by the International Trade Council (ITC) and affiliated with the Global Association of Online Trainers and Examiners (GAOTE).</p>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title"><i class="fas fa-flag"></i> Our Mission</h3>
+                            <p class="card-text">Fostering an inclusive academic environment where research and education are accessible to all, upholding high standards of academic integrity, promoting global collaboration, and encouraging lifelong learning.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title"><i class="fas fa-rocket"></i> Our Vision</h3>
+                            <p class="card-text">To become a global leader in research and education by connecting educators, researchers, and students worldwide, while continually advancing innovation and excellence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder Section -->
+        <section id="founder" class="section">
+            <div class="section-header">
+                <div class="section-subtitle">Our Founder</div>
+                <h2 class="section-title">Sudhakaran T.</h2>
+            </div>
+            <div class="founder-section">
+                <div class="founder-grid">
+                    <div class="founder-image-container">
+                        <img src="founder.jpeg" alt="Sudhakaran T. - Founder of SRCAA">
+                    </div>
+                    <div>
+                        <p style="font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">Sudhakaran T., the visionary founder of Shakti Research Centre and Academia (SRCAA), is a distinguished academic professional and researcher with a postgraduate degree in Master of Commerce. With extensive experience as a visiting faculty in various colleges, he has significantly contributed to academia through his published research papers in national and international journals.</p>
+                        
+                        <div class="founder-quote">
+                            <i class="fas fa-quote-left" style="color: #990000; margin-right: 0.5rem;"></i> 
+                            Driven by a mission to bridge gaps in research-focused institutions, positioning SRCAA as a platform for inclusive, accessible, and globally collaborative education.
+                        </div>
+                        
+                        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;">
+                            <span style="background: rgba(153,0,0,0.1); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem;"><i class="fas fa-certificate" style="color: #990000;"></i> ITC Associate Member</span>
+                            <span style="background: rgba(153,0,0,0.1); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem;"><i class="fas fa-certificate" style="color: #990000;"></i> IAOP Academy</span>
+                            <span style="background: rgba(153,0,0,0.1); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem;"><i class="fas fa-book" style="color: #990000;"></i> IJJSAR Founder</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section">
+            <div class="section-header">
+                <div class="section-subtitle">Our Team</div>
+                <h2 class="section-title">Meet Our Experts</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> Mr. Ambarish C Abbaiah</h3>
+                        <div class="card-subtitle"><i class="fas fa-graduation-cap"></i> MBA (IAU)</div>
+                        <p class="card-text">10+ years of teaching expertise with published research in national and international conferences.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> Mr. Dileep R</h3>
+                        <div class="card-subtitle"><i class="fas fa-graduation-cap"></i> M.A., B.Ed.</div>
+                        <p class="card-text">Active research team member with participation in various international seminars and conferences.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> Dr. Narayana K. H.</h3>
+                        <div class="card-subtitle"><i class="fas fa-graduation-cap"></i> M.A., Ph.D.</div>
+                        <p class="card-text">Head of Sanskrit Department with 28 years experience, 20 international journal publications.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> Dr. Lakshmi Bai D</h3>
+                        <div class="card-subtitle"><i class="fas fa-graduation-cap"></i> M.Com, MBA, M.Phil, Ph.D.</div>
+                        <p class="card-text">State-Level Second Rank in Indian Economy, 8 years teaching experience.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> Dr. Pruthvi N</h3>
+                        <div class="card-subtitle"><i class="fas fa-graduation-cap"></i> MBA, M.Com, PGDM, Ph.D.</div>
+                        <p class="card-text">12 years experience, numerous research papers at national and international levels.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> Mr. Dhasharatha T.</h3>
+                        <div class="card-subtitle"><i class="fas fa-graduation-cap"></i> M.Com, KSET Qualified</div>
+                        <p class="card-text">7+ years teaching experience, published researcher in commerce and taxation.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> Mr. Abhi C</h3>
+                        <div class="card-subtitle"><i class="fas fa-laptop-code"></i> Head of IT</div>
+                        <p class="card-text">Diploma in Computer Science Engineering, IT Support at Krypton India Solutions.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> Ms. Bindu C.</h3>
+                        <div class="card-subtitle"><i class="fas fa-gavel"></i> Legal Advisory</div>
+                        <p class="card-text">B.Com, LL.B., practicing under senior advocate, legal and administrative expert.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> Mr. Anil Sulegai Premanath</h3>
+                        <div class="card-subtitle"><i class="fas fa-calculator"></i> Tax Practitioner</div>
+                        <p class="card-text">22 years auditing expertise, author of "Entrepreneurship Made Simple".</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-user-graduate"></i> Mr. Manjunatha S</h3>
+                        <div class="card-subtitle"><i class="fas fa-graduation-cap"></i> M.Com</div>
+                        <p class="card-text">Research focus on AI integration in education, published in reputed journals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Press Release Section -->
+        <section id="press" class="section">
+            <div class="section-header">
+                <div class="section-subtitle">Publications & Reports</div>
+                <h2 class="section-title">Abhijnana Prathiba & Press Release</h2>
+            </div>
+            
+            <div class="press-section">
+                <div class="press-grid">
+                    <div class="press-category">
+                        <h3><i class="fas fa-newspaper"></i> Press Releases</h3>
+                        <ul class="press-list">
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> Press release-2, Abhijnana Pratibha-12</a></li>
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> Press release-03, Abhijnana Pratibha-13</a></li>
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> Press release-04, Abhijnana Pratibha-16</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="press-category">
+                        <h3><i class="fas fa-file-alt"></i> SRCAA Official Reports</h3>
+                        <ul class="press-list">
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> SRCAA/2025/BMS/204/01(VEENA.L) Internship Report</a></li>
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> SRCAA/2025/BMS/180/04 (SUSHMITHA) Internship Report</a></li>
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> SRCAA/2025/BMS/205/02(Rajeshwari) Internship Report</a></li>
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> SRCAA/2025/BMS/123/03(Sneha) Internship Report</a></li>
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> SRCAA/2025/BMS/134/05(Nikitha) Internship Report</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="press-section">
+                <div class="press-grid">
+                    <div class="press-category">
+                        <h3><i class="fas fa-bell"></i> Notifications And Circulars</h3>
+                        <ul class="press-list">
+                            <li><a href="#"><i class="fas fa-file-excel"></i> Legal Session Attendance Report</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="press-category">
+                        <h3><i class="fas fa-book"></i> Book & Publications</h3>
+                        <ul class="press-list">
+                            <li><a href="#"><i class="fas fa-book-open"></i> Author: Mrs. Varalakshmi G, (ISBN 978-81-979976-4-8)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Announcement -->
+        <section id="research" class="section">
+            <div class="research-announcement">
+                <div class="research-icon"><i class="fas fa-leaf"></i></div>
+                <div class="section-subtitle" style="color: rgba(255,255,255,0.9);">World Environment Day 2025</div>
+                <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin: 0.5rem 0;">New Research Initiative</h2>
+                <div class="research-topic">"Sustainable Practices and Consumer Buying Behavior in the Indian Textile Industry"</div>
+                <p style="margin: 1rem 0;">We invite all citizens, researchers, educators, students, and industry participants to take part in this unique study.</p>
+                <a href="https://forms.gle/R2PqT28pYEnwz8KS6" class="survey-link" target="_blank">Participate in Survey <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-header">
+                <div class="section-subtitle">Get in Touch</div>
+                <h2 class="section-title">Contact Us</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:srcaacontact@gmail.com">srcaacontact@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Social Media</h3>
+                    <p>Follow us on social platforms</p>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/srcaa_contact" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61562074991543" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">
+                    <img src="Logo Icon.png" alt="SRCAA Logo" style="height: 45px; width: auto; border-radius: 10px;">
+                    <span class="footer-logo-text">SRCAA</span>
+                </div>
+                <p style="color: #999; line-height: 1.6; margin-top: 1rem;">Shakti Research Centre and Academia<br>Empowering Academic Excellence Since 2024</p>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#team"><i class="fas fa-chevron-right"></i> Our Team</a></li>
+                    <li><a href="#press"><i class="fas fa-chevron-right"></i> Press Releases</a></li>
+                    <li><a href="#publications"><i class="fas fa-chevron-right"></i> Publications</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Contact</h3>
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:srcaacontact@gmail.com">srcaacontact@gmail.com</a></p>
+                </div>
+                <div class="social-links" style="justify-content: flex-start; margin-top: 1rem;">
+                    <a href="https://www.instagram.com/srcaa_contact" class="social-icon" style="width: 35px; height: 35px; font-size: 1rem;" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61562074991543" class="social-icon" style="width: 35px; height: 35px; font-size: 1rem;" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2024 Shakti Research Centre and Academia (SRCAA). All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    closeMenu();
+                }
+            });
+        });
+
+        // Cookie Consent
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
+        }
+
+        function getCookie(name) {
+            const value = "; " + document.cookie;
+            const parts = value.split("; " + name + "=");
+            if (parts.length === 2) return parts.pop().split(";").shift();
+        }
+
+        function acceptCookies() {
+            setCookie('cookieConsent', 'accepted', 365);
+            document.getElementById('cookieConsent').classList.remove('show');
+        }
+
+        function declineCookies() {
+            setCookie('cookieConsent', 'declined', 7);
+            document.getElementById('cookieConsent').classList.remove('show');
+        }
+
+        // Show cookie consent if not accepted
+        window.addEventListener('load', function() {
+            if (!getCookie('cookieConsent')) {
+                setTimeout(() => {
+                    document.getElementById('cookieConsent').classList.add('show');
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
